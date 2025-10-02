@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head><title>Trang chủ User</title></head>
+<body>
+<main layout:fragment="content">
+    <h2>Trang người dùng</h2>
+    <p>Chào mừng.</p>
+    <p><a th:href="@{/logout}">Đăng xuất</a></p>
+</main>
+</body>
+</html>

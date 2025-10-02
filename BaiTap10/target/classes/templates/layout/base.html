@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title layout:title-pattern="$CONTENT_TITLE | BT10">BT10</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header class="site-header">
+    <img th:src="@{/img/me.jpg}" alt="me" class="avatar">
+    <h1>BT10 Demo</h1>
+</header>
+
+<main layout:fragment="content">
+    <!-- Page content -->
+</main>
+
+<footer class="site-footer">
+    <div>Sinh viên thực hiện: 23162065 • Lớp: CNTT • Môn: Lập trình Web</div>
+</footer>
+</body>
+</html>

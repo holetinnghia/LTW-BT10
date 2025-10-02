@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head><title>Trang chủ Admin</title></head>
+<body>
+<main layout:fragment="content">
+    <h2>Trang quản trị</h2>
+    <ul>
+        <li><a th:href="@{/admin/categories}">Quản lý Category</a></li>
+        <li><a href="#">Quản lý Product (placeholder)</a></li>
+    </ul>
+    <p><a th:href="@{/logout}">Đăng xuất</a></p>
+</main>
+</body>
+</html>

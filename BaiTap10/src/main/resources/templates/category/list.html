@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head><title>Danh mục</title></head>
+<body>
+<main layout:fragment="content">
+    <h2>Danh mục</h2>
+
+    <form method="get" class="row" th:action="@{/admin/categories}">
+        <input type="text" name="q" th:value="${q}" placeholder="Tìm theo tên">
+        <button type="submit">Tìm</button>
+        <a th:href="@{/admin/categories/create}" class="btn">Thêm mới</a>
+    </form>
+
+    <table class="table">
+        <thead><tr><th>ID</th><th>Tên</th><th>Mô tả</th><th>Active</th><th></th></tr></thead>
+        <tbody>
+        <tr th:each="c : ${data.content}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.name}"></td>
+            <td th:text="${c.description}"></td>
+            <td th:text="${c.active}"></td>
+            <td>
+                <a th:href="@{|/admin/categories/${c.id}/edit|}">Sửa</a>
+                <form th:action="@{|/admin/categories/${c.id}/delete|}" method="post" style="display:inline">
+                    <button type="submit" onclick="return confirm('Xóa?')">Xóa</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <a th:if="${data.hasPrevious()}"
+           th:href="@{/admin/categories(page=${data.number-1},size=${data.size},q=${q})}">« Trước</a>
+        <span>Trang <span th:text="${data.number+1}"></span>/<span th:text="${data.totalPages}"></span></span>
+        <a th:if="${data.hasNext()}"
+           th:href="@{/admin/categories(page=${data.number+1},size=${data.size},q=${q})}">Sau »</a>
+    </div>
+</main>
+</body>
+</html>
